@@ -1,4 +1,3 @@
-
 import React, { useState } from 'react';
 import { Search, User, Heart, ShoppingCart, Menu, X } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -14,7 +13,7 @@ const Header = () => {
           <span>Free delivery on orders over ৳5,000</span>
           <div className="flex space-x-4">
             <span>📞 +880 1234-567890</span>
-            <span>✉️ info@startech.com.bd</span>
+            <span>✉️ info@techurahs.com.bd</span>
           </div>
         </div>
       </div>
@@ -25,9 +24,9 @@ const Header = () => {
           {/* Logo */}
           <Link to="/" className="flex items-center space-x-2">
             <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-              ST
+              TU
             </div>
-            <span className="text-2xl font-bold text-gray-800">StarTech</span>
+            <span className="text-2xl font-bold text-gray-800">Tech Urahs</span>
           </Link>
 
           {/* Search Bar */}
