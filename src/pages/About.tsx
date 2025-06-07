@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowLeft, Users, Award, Globe, Heart } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -18,7 +17,7 @@ const About = () => {
 
         <div className="max-w-4xl mx-auto">
           <div className="text-center mb-12">
-            <h1 className="text-4xl font-bold text-gray-800 mb-4">About StarTech</h1>
+            <h1 className="text-4xl font-bold text-gray-800 mb-4">About Tech Urahs</h1>
             <p className="text-xl text-gray-600">Your trusted technology partner in Bangladesh</p>
           </div>
 
@@ -49,7 +48,7 @@ const About = () => {
             <h2 className="text-3xl font-bold text-gray-800 mb-6">Our Story</h2>
             <div className="prose max-w-none">
               <p className="text-gray-600 mb-4">
-                Founded in 2014, StarTech has emerged as Bangladesh's leading technology retailer, 
+                Founded in 2014, Tech Urahs has emerged as Bangladesh's leading technology retailer, 
                 committed to providing the latest and greatest in computer hardware, laptops, 
                 gaming equipment, and tech accessories.
               </p>
