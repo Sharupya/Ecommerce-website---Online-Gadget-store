@@ -1,10 +1,12 @@
 
 import React, { useState } from 'react';
-import { ArrowRight, Heart, ShoppingCart, Star, User, Menu, X, Search, Truck, Shield, Headphones, RotateCcw } from 'lucide-react';
+import { ArrowRight, Heart, ShoppingCart, Star, Truck, Shield, Headphones, RotateCcw } from 'lucide-react';
 import { Link } from 'react-router-dom';
+import Header from '../components/Header';
+import Footer from '../components/Footer';
+import AnimatedBrands from '../components/AnimatedBrands';
 
 const Index = () => {
-  const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false);
   const [currentSlide, setCurrentSlide] = useState(0);
 
   const heroSlides = [
@@ -32,12 +34,12 @@ const Index = () => {
   ];
 
   const categories = [
-    { name: "Laptops", icon: "💻", count: "245+ Products" },
-    { name: "Desktops", icon: "🖥️", count: "180+ Products" },
-    { name: "Components", icon: "🔧", count: "520+ Products" },
-    { name: "Accessories", icon: "🎧", count: "340+ Products" },
-    { name: "Gaming", icon: "🎮", count: "190+ Products" },
-    { name: "Software", icon: "📀", count: "85+ Products" }
+    { name: "Laptops", icon: "💻", count: "245+ Products", link: "/laptops" },
+    { name: "Desktops", icon: "🖥️", count: "180+ Products", link: "/desktops" },
+    { name: "Components", icon: "🔧", count: "520+ Products", link: "/components" },
+    { name: "Accessories", icon: "🎧", count: "340+ Products", link: "/accessories" },
+    { name: "Gaming", icon: "🎮", count: "190+ Products", link: "/gaming" },
+    { name: "Software", icon: "📀", count: "85+ Products", link: "/products" }
   ];
 
   const featuredProducts = [
@@ -83,132 +85,9 @@ const Index = () => {
     }
   ];
 
-  const brands = [
-    { name: "Apple", logo: "🍎" },
-    { name: "Dell", logo: "🏢" },
-    { name: "HP", logo: "🖨️" },
-    { name: "Lenovo", logo: "💼" },
-    { name: "ASUS", logo: "⚡" },
-    { name: "MSI", logo: "🎯" }
-  ];
-
   return (
     <div className="min-h-screen bg-gray-50">
-      {/* Header */}
-      <header className="bg-white shadow-lg sticky top-0 z-50">
-        {/* Top Bar */}
-        <div className="bg-blue-600 text-white py-2">
-          <div className="container mx-auto px-4 flex justify-between items-center text-sm">
-            <span>Free delivery on orders over ৳5,000</span>
-            <div className="flex space-x-4">
-              <span>📞 +880 1234-567890</span>
-              <span>✉️ info@startech.com.bd</span>
-            </div>
-          </div>
-        </div>
-
-        {/* Main Header */}
-        <div className="container mx-auto px-4 py-4">
-          <div className="flex items-center justify-between">
-            {/* Logo */}
-            <Link to="/" className="flex items-center space-x-2">
-              <div className="w-10 h-10 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold text-xl">
-                ST
-              </div>
-              <span className="text-2xl font-bold text-gray-800">StarTech</span>
-            </Link>
-
-            {/* Search Bar */}
-            <div className="hidden md:flex flex-1 max-w-2xl mx-8">
-              <div className="relative w-full">
-                <input
-                  type="text"
-                  placeholder="Search for products..."
-                  className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500 focus:border-transparent"
-                />
-                <button className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 hover:text-blue-600">
-                  <Search className="w-5 h-5" />
-                </button>
-              </div>
-            </div>
-
-            {/* Header Actions */}
-            <div className="flex items-center space-x-4">
-              <button className="hidden md:flex items-center space-x-1 text-gray-600 hover:text-blue-600 transition-colors">
-                <User className="w-5 h-5" />
-                <span>Account</span>
-              </button>
-              
-              <button className="relative text-gray-600 hover:text-blue-600 transition-colors">
-                <Heart className="w-6 h-6" />
-                <span className="absolute -top-2 -right-2 bg-red-500 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  3
-                </span>
-              </button>
-
-              <button className="relative text-gray-600 hover:text-blue-600 transition-colors">
-                <ShoppingCart className="w-6 h-6" />
-                <span className="absolute -top-2 -right-2 bg-blue-600 text-white text-xs rounded-full w-5 h-5 flex items-center justify-center">
-                  2
-                </span>
-              </button>
-
-              {/* Mobile Menu Button */}
-              <button
-                onClick={() => setIsMobileMenuOpen(!isMobileMenuOpen)}
-                className="md:hidden text-gray-600"
-              >
-                {isMobileMenuOpen ? <X className="w-6 h-6" /> : <Menu className="w-6 h-6" />}
-              </button>
-            </div>
-          </div>
-
-          {/* Mobile Search */}
-          <div className="md:hidden mt-4">
-            <div className="relative">
-              <input
-                type="text"
-                placeholder="Search products..."
-                className="w-full px-4 py-3 pr-12 border border-gray-300 rounded-lg focus:outline-none focus:ring-2 focus:ring-blue-500"
-              />
-              <Search className="absolute right-3 top-1/2 transform -translate-y-1/2 text-gray-400 w-5 h-5" />
-            </div>
-          </div>
-        </div>
-
-        {/* Navigation */}
-        <nav className="bg-gray-900 text-white">
-          <div className="container mx-auto px-4">
-            <div className="hidden md:flex items-center space-x-8 py-3">
-              <Link to="/categories" className="hover:text-blue-400 transition-colors font-medium">All Categories</Link>
-              <Link to="/laptops" className="hover:text-blue-400 transition-colors">Laptops</Link>
-              <Link to="/desktops" className="hover:text-blue-400 transition-colors">Desktops</Link>
-              <Link to="/components" className="hover:text-blue-400 transition-colors">Components</Link>
-              <Link to="/accessories" className="hover:text-blue-400 transition-colors">Accessories</Link>
-              <Link to="/gaming" className="hover:text-blue-400 transition-colors">Gaming</Link>
-              <Link to="/deals" className="hover:text-blue-400 transition-colors text-yellow-400">Hot Deals</Link>
-            </div>
-          </div>
-        </nav>
-
-        {/* Mobile Menu */}
-        {isMobileMenuOpen && (
-          <div className="md:hidden bg-white border-t shadow-lg">
-            <div className="px-4 py-2 space-y-2">
-              <Link to="/categories" className="block py-2 text-gray-700 hover:text-blue-600">All Categories</Link>
-              <Link to="/laptops" className="block py-2 text-gray-700 hover:text-blue-600">Laptops</Link>
-              <Link to="/desktops" className="block py-2 text-gray-700 hover:text-blue-600">Desktops</Link>
-              <Link to="/components" className="block py-2 text-gray-700 hover:text-blue-600">Components</Link>
-              <Link to="/accessories" className="block py-2 text-gray-700 hover:text-blue-600">Accessories</Link>
-              <Link to="/gaming" className="block py-2 text-gray-700 hover:text-blue-600">Gaming</Link>
-              <Link to="/deals" className="block py-2 text-yellow-600 hover:text-yellow-700">Hot Deals</Link>
-              <hr className="my-2" />
-              <Link to="/login" className="block py-2 text-gray-700 hover:text-blue-600">Login</Link>
-              <Link to="/register" className="block py-2 text-gray-700 hover:text-blue-600">Register</Link>
-            </div>
-          </div>
-        )}
-      </header>
+      <Header />
 
       {/* Hero Section */}
       <section className="relative">
@@ -227,14 +106,14 @@ const Index = () => {
               />
               <div className="absolute inset-0 bg-black bg-opacity-40"></div>
               <div className="absolute inset-0 flex items-center justify-center text-center">
-                <div className="max-w-2xl px-4">
+                <div className="max-w-2xl px-4 animate-fade-in">
                   <h1 className="text-4xl md:text-6xl font-bold text-white mb-4">
                     {slide.title}
                   </h1>
                   <p className="text-xl md:text-2xl text-white mb-8">
                     {slide.subtitle}
                   </p>
-                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-colors">
+                  <button className="bg-blue-600 hover:bg-blue-700 text-white px-8 py-3 rounded-lg text-lg font-semibold transition-all duration-300 transform hover:scale-105">
                     {slide.cta}
                   </button>
                 </div>
@@ -249,8 +128,8 @@ const Index = () => {
             <button
               key={index}
               onClick={() => setCurrentSlide(index)}
-              className={`w-3 h-3 rounded-full transition-colors ${
-                index === currentSlide ? 'bg-white' : 'bg-white bg-opacity-50'
+              className={`w-3 h-3 rounded-full transition-all duration-300 ${
+                index === currentSlide ? 'bg-white scale-125' : 'bg-white bg-opacity-50'
               }`}
             />
           ))}
@@ -261,29 +140,29 @@ const Index = () => {
       <section className="bg-white py-6 border-b">
         <div className="container mx-auto px-4">
           <div className="grid grid-cols-2 md:grid-cols-4 gap-4">
-            <div className="flex items-center space-x-3">
-              <Truck className="w-8 h-8 text-blue-600" />
+            <div className="flex items-center space-x-3 group">
+              <Truck className="w-8 h-8 text-blue-600 group-hover:scale-110 transition-transform" />
               <div>
                 <h3 className="font-semibold text-gray-800">Free Delivery</h3>
                 <p className="text-sm text-gray-600">Orders over ৳5,000</p>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <Shield className="w-8 h-8 text-green-600" />
+            <div className="flex items-center space-x-3 group">
+              <Shield className="w-8 h-8 text-green-600 group-hover:scale-110 transition-transform" />
               <div>
                 <h3 className="font-semibold text-gray-800">Secure Payment</h3>
                 <p className="text-sm text-gray-600">100% Protected</p>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <Headphones className="w-8 h-8 text-purple-600" />
+            <div className="flex items-center space-x-3 group">
+              <Headphones className="w-8 h-8 text-purple-600 group-hover:scale-110 transition-transform" />
               <div>
                 <h3 className="font-semibold text-gray-800">24/7 Support</h3>
                 <p className="text-sm text-gray-600">Dedicated Help</p>
               </div>
             </div>
-            <div className="flex items-center space-x-3">
-              <RotateCcw className="w-8 h-8 text-orange-600" />
+            <div className="flex items-center space-x-3 group">
+              <RotateCcw className="w-8 h-8 text-orange-600 group-hover:scale-110 transition-transform" />
               <div>
                 <h3 className="font-semibold text-gray-800">Easy Returns</h3>
                 <p className="text-sm text-gray-600">30 Day Policy</p>
@@ -296,15 +175,16 @@ const Index = () => {
       {/* Categories Section */}
       <section className="py-12 bg-gray-50">
         <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Shop by Category</h2>
+          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8 animate-fade-in">Shop by Category</h2>
           <div className="grid grid-cols-2 md:grid-cols-3 lg:grid-cols-6 gap-6">
             {categories.map((category, index) => (
               <Link
                 key={index}
-                to={`/category/${category.name.toLowerCase()}`}
-                className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow group"
+                to={category.link}
+                className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-all duration-300 group transform hover:-translate-y-2"
+                style={{ animationDelay: `${index * 0.1}s` }}
               >
-                <div className="text-4xl mb-3 group-hover:scale-110 transition-transform">
+                <div className="text-4xl mb-3 group-hover:scale-125 transition-transform duration-300">
                   {category.icon}
                 </div>
                 <h3 className="font-semibold text-gray-800 mb-1">{category.name}</h3>
@@ -320,20 +200,24 @@ const Index = () => {
         <div className="container mx-auto px-4">
           <div className="flex justify-between items-center mb-8">
             <h2 className="text-3xl font-bold text-gray-800">Featured Products</h2>
-            <Link to="/products" className="text-blue-600 hover:text-blue-700 flex items-center space-x-1">
+            <Link to="/products" className="text-blue-600 hover:text-blue-700 flex items-center space-x-1 group">
               <span>View All</span>
-              <ArrowRight className="w-4 h-4" />
+              <ArrowRight className="w-4 h-4 group-hover:translate-x-1 transition-transform" />
             </Link>
           </div>
           
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
-            {featuredProducts.map((product) => (
-              <div key={product.id} className="bg-white rounded-lg border hover:shadow-lg transition-shadow group">
-                <div className="relative">
+            {featuredProducts.map((product, index) => (
+              <div 
+                key={product.id} 
+                className="bg-white rounded-lg border hover:shadow-lg transition-all duration-300 group transform hover:-translate-y-2"
+                style={{ animationDelay: `${index * 0.1}s` }}
+              >
+                <div className="relative overflow-hidden rounded-t-lg">
                   <img
                     src={product.image}
                     alt={product.name}
-                    className="w-full h-48 object-cover rounded-t-lg"
+                    className="w-full h-48 object-cover transition-transform duration-300 group-hover:scale-110"
                   />
                   <span className={`absolute top-3 left-3 px-2 py-1 rounded text-xs font-semibold text-white ${
                     product.badge === 'Hot Deal' ? 'bg-red-500' :
@@ -342,7 +226,7 @@ const Index = () => {
                   }`}>
                     {product.badge}
                   </span>
-                  <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-colors">
+                  <button className="absolute top-3 right-3 p-2 bg-white rounded-full shadow-md hover:bg-gray-100 transition-all duration-300 transform hover:scale-110">
                     <Heart className="w-4 h-4 text-gray-600" />
                   </button>
                 </div>
@@ -374,7 +258,7 @@ const Index = () => {
                     </span>
                   </div>
                   
-                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-colors">
+                  <button className="w-full bg-blue-600 hover:bg-blue-700 text-white py-2 rounded-lg transition-all duration-300 transform hover:scale-105">
                     Add to Cart
                   </button>
                 </div>
@@ -384,97 +268,28 @@ const Index = () => {
         </div>
       </section>
 
-      {/* Brands Section */}
-      <section className="py-12 bg-gray-100">
-        <div className="container mx-auto px-4">
-          <h2 className="text-3xl font-bold text-center text-gray-800 mb-8">Trusted Brands</h2>
-          <div className="grid grid-cols-3 md:grid-cols-6 gap-8">
-            {brands.map((brand, index) => (
-              <div key={index} className="bg-white rounded-lg p-6 text-center hover:shadow-lg transition-shadow">
-                <div className="text-3xl mb-2">{brand.logo}</div>
-                <h3 className="font-semibold text-gray-800">{brand.name}</h3>
-              </div>
-            ))}
-          </div>
-        </div>
-      </section>
+      {/* Animated Brands Section */}
+      <AnimatedBrands />
 
       {/* Newsletter */}
       <section className="py-12 bg-blue-600 text-white">
         <div className="container mx-auto px-4 text-center">
-          <h2 className="text-3xl font-bold mb-4">Stay Updated</h2>
-          <p className="text-xl mb-8">Get the latest deals and tech news delivered to your inbox</p>
-          <div className="max-w-md mx-auto flex">
+          <h2 className="text-3xl font-bold mb-4 animate-fade-in">Stay Updated</h2>
+          <p className="text-xl mb-8 animate-fade-in">Get the latest deals and tech news delivered to your inbox</p>
+          <div className="max-w-md mx-auto flex animate-scale-in">
             <input
               type="email"
               placeholder="Enter your email"
-              className="flex-1 px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none"
+              className="flex-1 px-4 py-3 rounded-l-lg text-gray-800 focus:outline-none transition-all duration-300 focus:ring-2 focus:ring-blue-300"
             />
-            <button className="bg-blue-800 hover:bg-blue-900 px-6 py-3 rounded-r-lg transition-colors">
+            <button className="bg-blue-800 hover:bg-blue-900 px-6 py-3 rounded-r-lg transition-all duration-300 transform hover:scale-105">
               Subscribe
             </button>
           </div>
         </div>
       </section>
 
-      {/* Footer */}
-      <footer className="bg-gray-900 text-white py-12">
-        <div className="container mx-auto px-4">
-          <div className="grid grid-cols-1 md:grid-cols-4 gap-8">
-            <div>
-              <div className="flex items-center space-x-2 mb-4">
-                <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
-                  ST
-                </div>
-                <span className="text-xl font-bold">StarTech</span>
-              </div>
-              <p className="text-gray-400 mb-4">
-                Your trusted technology partner in Bangladesh. Quality products, competitive prices, and excellent service.
-              </p>
-              <div className="flex space-x-4">
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">📘</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">📷</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">📺</a>
-                <a href="#" className="text-gray-400 hover:text-white transition-colors">🐦</a>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-lg mb-4">Quick Links</h3>
-              <div className="space-y-2">
-                <Link to="/about" className="block text-gray-400 hover:text-white transition-colors">About Us</Link>
-                <Link to="/contact" className="block text-gray-400 hover:text-white transition-colors">Contact</Link>
-                <Link to="/careers" className="block text-gray-400 hover:text-white transition-colors">Careers</Link>
-                <Link to="/blog" className="block text-gray-400 hover:text-white transition-colors">Blog</Link>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-lg mb-4">Customer Service</h3>
-              <div className="space-y-2">
-                <Link to="/support" className="block text-gray-400 hover:text-white transition-colors">Help Center</Link>
-                <Link to="/returns" className="block text-gray-400 hover:text-white transition-colors">Returns</Link>
-                <Link to="/warranty" className="block text-gray-400 hover:text-white transition-colors">Warranty</Link>
-                <Link to="/shipping" className="block text-gray-400 hover:text-white transition-colors">Shipping Info</Link>
-              </div>
-            </div>
-            
-            <div>
-              <h3 className="font-semibold text-lg mb-4">Contact Info</h3>
-              <div className="space-y-2 text-gray-400">
-                <p>📍 123 Tech Street, Dhaka 1000</p>
-                <p>📞 +880 1234-567890</p>
-                <p>✉️ info@startech.com.bd</p>
-                <p>🕒 10:00 AM - 10:00 PM</p>
-              </div>
-            </div>
-          </div>
-          
-          <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-            <p>&copy; 2024 StarTech Bangladesh. All rights reserved.</p>
-          </div>
-        </div>
-      </footer>
+      <Footer />
     </div>
   );
 };
