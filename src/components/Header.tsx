@@ -29,6 +29,14 @@ const Header = () => {
             <span className="text-2xl font-bold text-gray-800">Tech Urahs</span>
           </Link>
 
+          {/* Shop Now Button */}
+          <Link
+            to="/categories"
+            className="ml-4 px-5 py-2 bg-blue-600 text-white rounded-lg font-semibold shadow hover:bg-blue-700 transition-colors hidden md:inline-block"
+          >
+            Shop Now
+          </Link>
+
           {/* Search Bar */}
           <div className="hidden md:flex flex-1 max-w-2xl mx-8">
             <div className="relative w-full">
