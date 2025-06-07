@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { ArrowLeft, Eye, EyeOff } from 'lucide-react';
 import { Link } from 'react-router-dom';
@@ -19,7 +18,7 @@ const Login = () => {
         </Link>
 
         <div className="max-w-md mx-auto bg-white rounded-lg shadow-lg p-8">
-          <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login to StarTech</h2>
+          <h2 className="text-2xl font-bold text-center text-gray-800 mb-6">Login to Tech Urahs</h2>
           
           <form className="space-y-4">
             <div>

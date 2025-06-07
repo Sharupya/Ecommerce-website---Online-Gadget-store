@@ -1,4 +1,3 @@
-
 import React from 'react';
 import { Link } from 'react-router-dom';
 
@@ -10,9 +9,9 @@ const Footer = () => {
           <div>
             <div className="flex items-center space-x-2 mb-4">
               <div className="w-8 h-8 bg-blue-600 rounded-lg flex items-center justify-center text-white font-bold">
-                ST
+                TU
               </div>
-              <span className="text-xl font-bold">StarTech</span>
+              <span className="text-xl font-bold">Tech Urahs</span>
             </div>
             <p className="text-gray-400 mb-4">
               Your trusted technology partner in Bangladesh. Quality products, competitive prices, and excellent service.
@@ -50,14 +49,14 @@ const Footer = () => {
             <div className="space-y-2 text-gray-400">
               <p>📍 123 Tech Street, Dhaka 1000</p>
               <p>📞 +880 1234-567890</p>
-              <p>✉️ info@startech.com.bd</p>
+              <p>✉️ info@techurahs.com.bd</p>
               <p>🕒 10:00 AM - 10:00 PM</p>
             </div>
           </div>
         </div>
         
         <div className="border-t border-gray-800 mt-8 pt-8 text-center text-gray-400">
-          <p>&copy; 2024 StarTech Bangladesh. All rights reserved.</p>
+          <p>&copy; 2024 Tech Urahs Bangladesh. All rights reserved.</p>
         </div>
       </div>
     </footer>
